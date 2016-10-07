@@ -15,6 +15,7 @@ public class WorldRenderer extends ScreenAdapter {
 	private Pacman pacman;
 	private SpriteBatch batch;
 	private MazeRenderer mazeRenderer;
+	public static final int BLOCK_SIZE = 40;
 	
 	public WorldRenderer(PacmanGame pacmanGame, World world) {
         this.pacmanGame = pacmanGame;
@@ -29,10 +30,12 @@ public class WorldRenderer extends ScreenAdapter {
 	 public void render(float delta) {
 	    	Gdx.gl.glClearColor(0, 0, 0, 1);
 	        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-	        Vector2 pos = pacman.getPosition();
+	        //Vector2 pos = pacman.getPosition();
 	        mazeRenderer.render();
+	        SpriteBatch batch = pacmanGame.batch;
+	        Vector2 pos = world.getPacman().getPosition();
 	        batch.begin();
-	        batch.draw(pacmanImg, pos.x, pos.y);
+	        batch.draw(pacmanImg, pos.x - BLOCK_SIZE/2, PacmanGame.HEIGHT - pos.y - BLOCK_SIZE/2);
 	        batch.end();
 	    }
 
