@@ -14,6 +14,7 @@ public class WorldRenderer extends ScreenAdapter {
 	private Texture pacmanImg;
 	private Pacman pacman;
 	private SpriteBatch batch;
+	private MazeRenderer mazeRenderer;
 	
 	public WorldRenderer(PacmanGame pacmanGame, World world) {
         this.pacmanGame = pacmanGame;
@@ -21,14 +22,16 @@ public class WorldRenderer extends ScreenAdapter {
         this.world = world;
         pacmanImg = new Texture("pacman.png");
         pacman  = world.getPacman();
+        mazeRenderer = new MazeRenderer(pacmanGame.batch, world.getMaze());
     }
 	
 	@Override
 	 public void render(float delta) {
 	    	Gdx.gl.glClearColor(0, 0, 0, 1);
 	        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-	        batch.begin();
 	        Vector2 pos = pacman.getPosition();
+	        mazeRenderer.render();
+	        batch.begin();
 	        batch.draw(pacmanImg, pos.x, pos.y);
 	        batch.end();
 	    }
