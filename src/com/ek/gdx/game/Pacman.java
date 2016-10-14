@@ -48,12 +48,17 @@ public class Pacman {
 	    }
 	    public void update() {
 	    	Maze maze = world.getMaze();
-	        if(isAtCenter()) {
-	            if(canMoveInDirection(nextDirection)) {
+	        if(isAtCenter()) 
+	        {
+	            if(canMoveInDirection(nextDirection)) 
+	            {
 	                currentDirection = nextDirection;    
-	            } else {
+	            } 
+	            else 
+	            {
 	                currentDirection = DIRECTION_STILL;    
 	            }
+	           
 	            if(maze.hasDotAt(getRow(),getColumn()))
 	            {
 	            	maze.removeDotAt(getRow(), getColumn());

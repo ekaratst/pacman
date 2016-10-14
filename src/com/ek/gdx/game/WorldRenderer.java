@@ -11,13 +11,13 @@ import com.badlogic.gdx.math.Vector2;
 public class WorldRenderer extends ScreenAdapter {
 	
 	private PacmanGame pacmanGame;
-	World world;
 	private Texture pacmanImg;
 	private Pacman pacman;
 	private SpriteBatch batch;
 	private MazeRenderer mazeRenderer;
 	public static final int BLOCK_SIZE = 40;
 	private BitmapFont font;
+	World world;
 	
 	public WorldRenderer(PacmanGame pacmanGame, World world) {
         this.pacmanGame = pacmanGame;
